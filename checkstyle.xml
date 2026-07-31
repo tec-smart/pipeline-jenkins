@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 10.12//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+    <property name="charset" value="UTF-8"/>
+
+    <!-- Detecta tabs -->
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+    </module>
+
+    <!-- Máximo tamaño de línea -->
+    <module name="LineLength">
+        <property name="max" value="120"/>
+    </module>
+
+
+    <module name="TreeWalker">
+
+        <!-- Imports -->
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
+
+
+        <!-- Naming conventions -->
+        <module name="TypeName"/>
+        <module name="MethodName"/>
+        <module name="MemberName"/>
+
+
+        <!-- Code style -->
+        <module name="NeedBraces"/>
+        <module name="EmptyLineSeparator"/>
+
+
+        <!-- Whitespace -->
+        <module name="WhitespaceAround"/>
+        <module name="WhitespaceAfter"/>
+
+    </module>
+
+</module>
