@@ -29,14 +29,19 @@ pipeline {
         }
 
 
-        
-
-
         stage('Package') {
             steps {
                 sh '''
                     mvn package -DskipTests
                 '''
+            }
+        }
+
+        stage("Docker"){
+            steps{
+                sh '"
+                    docker ps 
+                "'
             }
         }
 
@@ -46,7 +51,7 @@ pipeline {
     post {
 
         success {
-            echo 'BUILD SUCCESS'
+            echo 'BUILD SUCCESS esto es una prueba'
         }
 
         failure {
