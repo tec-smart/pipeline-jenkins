@@ -37,10 +37,10 @@ pipeline {
             }
         }
 
-        stage("Docker"){
-            steps{
+        stage('Docker Build') {
+            steps {
                 sh '''
-                    docker ps
+                    docker build -t portfolio:latest .
                 '''
             }
         }
