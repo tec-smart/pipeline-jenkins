@@ -39,9 +39,9 @@ pipeline {
 
         stage("Docker"){
             steps{
-                sh '"
-                    docker ps 
-                "'
+                sh '''
+                    docker ps
+                '''
             }
         }
 
