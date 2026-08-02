@@ -19,6 +19,7 @@ pipeline {
             }
         }
 
+
         stage('Compile') {
             steps {
                 sh '''
@@ -27,9 +28,7 @@ pipeline {
             }
         }
 
-        
-
-        stage('Code Format Validation') {
+        stage('Spotless Check') {
             steps {
                 sh '''
                     mvn spotless:check
@@ -37,29 +36,6 @@ pipeline {
             }
         }
 
-        /*
-        stage('Unit Tests') {
-            steps {
-                sh '''
-                    mvn test
-                '''
-            }
-        }
-
-        stage('JUnit Report') {
-            steps {
-                junit '**/target/surefire-reports/*.xml'
-            }
-        }
-
-        stage('Code Coverage') {
-            steps {
-                sh '''
-                    mvn jacoco:report
-                '''
-            }
-        }
-        */
 
         stage('Package') {
             steps {
@@ -69,60 +45,19 @@ pipeline {
             }
         }
 
-        /*
-        stage('Static Analysis') {
-            steps {
-                // SonarQube
-            }
-        }
-
-        stage('Dependency Scan') {
-            steps {
-                // OWASP Dependency Check
-            }
-        }
-
-        stage('Publish Artifact') {
-            steps {
-                // Nexus / Artifactory / GitHub Packages
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                // docker build
-            }
-        }
-
-        stage('Docker Push') {
-            steps {
-                // docker push
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Docker Compose / Kubernetes
-            }
-        }
-        */
 
     }
+
 
     post {
 
         success {
-            echo 'BUILD SUCCESS'
+            echo 'BUILD SUCCESS esto es una prueba'
         }
 
         failure {
             echo 'BUILD FAILED'
         }
 
-        always {
-            cleanWs()
-        }
-
     }
-
 }
