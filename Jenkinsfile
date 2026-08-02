@@ -27,13 +27,7 @@ pipeline {
             }
         }
 
-        stage('Spotless Check') {
-            steps {
-                sh '''
-                    mvn spotless:check
-                '''
-            }
-        }
+        
 
         stage('Code Format Validation') {
             steps {
