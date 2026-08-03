@@ -1,14 +1,11 @@
 spring:
-
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
-
+    url: jdbc:postgresql://localhost:5433/portfolio_test
+    username: postgres
+    password: postgres
   jpa:
     hibernate:
       ddl-auto: create-drop
-
   data:
     redis:
       repositories:
