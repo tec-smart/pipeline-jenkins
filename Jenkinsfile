@@ -7,6 +7,17 @@ pipeline {
         jdk 'JDK21'
     }
 
+    pipeline {
+
+        agent any
+
+        triggers {
+            githubPush()
+        }
+
+        ...
+    }
+
     environment {
         MAVEN_OPTS = "-Dmaven.test.failure.ignore=false"
     }
@@ -18,6 +29,8 @@ pipeline {
                 checkout scm
             }
         }
+
+
 
 
         stage('Compile') {
@@ -35,6 +48,20 @@ pipeline {
                 '''
             }
         }
+
+        stage('Unit Tests') {
+            steps {
+                sh '''
+                    mvn test
+                '''
+            }
+        }
+
+        stage('Publish Test Results') {
+            steps {
+                junit 'target/surefire-reports/*.xml'
+            }
+}
 
 
         stage('Package') {
