@@ -7,17 +7,7 @@ pipeline {
         jdk 'JDK21'
     }
 
-    pipeline {
-
-        agent any
-
-        triggers {
-            githubPush()
-        }
-
-        ...
-    }
-
+    
     environment {
         MAVEN_OPTS = "-Dmaven.test.failure.ignore=false"
     }
@@ -49,9 +39,13 @@ pipeline {
             }
         }
 
-
-
-        
+        stage('Unit Tests') {
+            steps {
+                sh '''
+                    mvn test
+                '''
+            }
+        }
 
 
         stage('Package') {
