@@ -1,6 +1,8 @@
 package com.tecsmartapp.portfolio;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.sql.Connection;
 import javax.sql.DataSource;
 import org.junit.jupiter.api.Test;
@@ -13,6 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 class DatabaseConnectionTest {
     @Autowired
     private DataSource dataSource;
+
     @Test
     void shouldConnectToDatabase() throws Exception {
         assertNotNull(dataSource);
