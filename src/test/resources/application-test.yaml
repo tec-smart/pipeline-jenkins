@@ -1,12 +1,13 @@
 spring:
   datasource:
+    driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5434/portfolio_test
     username: postgres
     password: postgres
   jpa:
+    open-in-view: false
     hibernate:
-      ddl-auto: create-drop
-  data:
-    redis:
-      repositories:
-        enabled: false
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
