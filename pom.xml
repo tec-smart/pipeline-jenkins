@@ -24,11 +24,23 @@
 		<checkstyle.version>3.6.0</checkstyle.version>
 		<spotbugs.version>4.10.3.0</spotbugs.version>
 		<jacoco.version>0.8.13</jacoco.version>
-		<testcontainers.version>2.0.5</testcontainers.version>
+		<testcontainers.version>1.21.3</testcontainers.version>
 		<archunit.version>1.4.1</archunit.version>
 		<restassured.version>5.5.6</restassured.version>
 		<maven.compiler.release>${java.version}</maven.compiler.release>
 	</properties>
+
+	<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers-bom</artifactId>
+            <version>${testcontainers.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -63,35 +75,26 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>testcontainers</artifactId>
-			<version>1.21.3</version>
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>1.21.3</version>
-			<scope>test</scope>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>1.21.3</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>kafka</artifactId>
-			<version>1.21.3</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>com.tngtech.archunit</groupId>
-			<artifactId>archunit-junit5</artifactId>
-			<version>1.4.1</version>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
 
@@ -122,14 +125,12 @@
 			<version>3.13.1</version>
 			<scope>test</scope>
 		</dependency>
-
-				<dependency>
-					<groupId>org.testcontainers</groupId>
-					<artifactId>testcontainers-bom</artifactId>
-					<version>1.21.3</version>
-					<type>pom</type>
-					<scope>import</scope>
-				</dependency>
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<version>${archunit.version}</version>
+			<scope>test</scope>
+	</dependency>
 
 	</dependencies>
 
